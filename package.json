@@ -1,0 +1,12 @@
+{
+  "name": "gardenbot",
+  "version": "0.0.1",
+  "main": "app.js",
+  "author": "J Silverstein <jess.pebble@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
+}
