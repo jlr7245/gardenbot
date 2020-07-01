@@ -1,26 +1,11 @@
 require('dotenv').config();
-const express = require('express');
-const logger = require('morgan');
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 
-const app = express();
+const TOKEN = process.env.TOKEN;
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-});
+bot.login(TOKEN);
 
-app.use(logger('dev'));
-
-app.use((req, res, next) => {
-  res.locals.data = {};
-  next();
-});
-
-app.use('*', (req, res) => {
-  res.status(404).send('Not Found');
-});
-
-app.use((err, req, res, next) => {
-  console.warn(err);
-  res.status(500).json({ error: err, message: err.message });
+bot.on('ready', () => {
+  console.info(`Logged in as ${bot.user.tag}!`);
 });
